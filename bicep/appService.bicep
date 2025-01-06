@@ -24,7 +24,7 @@ param hostRoute string = ''
   'false'
   ''
 ])
-param preserveConfig string = ''
+param foundryPreserveConfig string = ''
 
 @description('Your Foundry VTT username.')
 @secure()
@@ -106,7 +106,7 @@ module webAppFoundryVtt './modules/webAppFoundryVtt.bicep' = {
     language: language
     hostname: hostname
     hostRoute: hostRoute
-    preserveConfig: preserveConfig
+    preserveConfig: foundryPreserveConfig
   }
 }
 
