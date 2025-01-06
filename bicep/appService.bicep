@@ -19,6 +19,11 @@ param hostname string = 'https://${webAppName}.azurewebsites.net'
 param hostRoute string = ''
 
 @description('If true, preserve the container config across deployments and restarts')
+@allowed([
+  'true'
+  'false'
+  ''
+])
 param preserveConfig string = ''
 
 @description('Your Foundry VTT username.')

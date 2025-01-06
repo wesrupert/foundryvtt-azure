@@ -60,7 +60,7 @@ resource webApp 'Microsoft.Web/sites@2023-12-01' = {
         }
         {
           name: 'CONTAINER_PRESERVE_CONFIG'
-          value: preserveConfig ? 'true' : 'false'
+          value: preserveConfig
         }
         {
           name: 'FOUNDRY_LANGUAGE'
