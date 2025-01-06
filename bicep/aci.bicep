@@ -15,7 +15,7 @@ param language string = 'en.core'
 @description('If provided, serve Foundry content from this domain child route')
 param hostname string = 'https://${webAppName}.azurewebsites.net'
 
-@description('If provided, use in place of the machine's public IP address when generating invites')
+@description('If provided, use in place of an IP address when generating invites')
 param hostRoute string = ''
 
 @description('If true, preserve the container config across deployments and restarts')
