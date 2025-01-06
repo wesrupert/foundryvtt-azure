@@ -2,6 +2,10 @@ param location string
 param appServicePlanId string
 param storageAccountName string
 param webAppName string
+param language string
+param hostname string
+param hostRoute string
+param preserveConfig boolean
 
 @secure()
 param foundryUsername string
@@ -54,6 +58,22 @@ resource webApp 'Microsoft.Web/sites@2023-12-01' = {
           name: 'FOUNDRY_MINIFY_STATIC_FILES'
           value: 'true'
         }
+        {
+          name: 'CONTAINER_PRESERVE_CONFIG'
+          value: preserveConfig ? 'true' : 'false'
+        }
+        {
+          name: 'FOUNDRY_LANGUAGE'
+          value: language
+        }
+        {
+          name: 'FOUNDRY_HOSTNAME'
+          value: hostname
+        }
+        {
+          name: 'FOUNDRY_ROUTE_PREFIX'
+          value: hostRoute
+        }
         // Set the container start time limit to max because Foundry VTT
         // container may take some time to start up depending on the number
         // of modules added.
@@ -93,4 +113,4 @@ resource webApp 'Microsoft.Web/sites@2023-12-01' = {
   }
 }
 
-output url string = 'https://${webAppName}.azurewebsites.net'
+output url string = concat(hostname, hostRoute ? '/' : '', hostRoute)

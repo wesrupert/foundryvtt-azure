@@ -3,14 +3,23 @@ name: deploy-aci
 on:
   workflow_call:
     inputs:
-      LOCATION:
-        required: true
-        type: string
       BASE_RESOURCE_NAME:
         required: true
         type: string
       RESOURCE_GROUP_NAME:
         required: true
+        type: string
+      LOCATION:
+        required: true
+        type: string
+      HOST_NAME:
+        required: false
+        type: string
+      HOST_SUB_ROUTE:
+        required: false
+        type: string
+      LANGUAGE:
+        required: false
         type: string
       STORAGE_CONFIGURATION:
         required: true
@@ -18,6 +27,9 @@ on:
       CONTAINER_CONFIGURATION:
         required: true
         type: string
+      CONTAINER_PRESERVE_CONFIG:
+        required: false
+        type: boolean
     secrets:
       AZURE_TENANT_ID:
         required: true
@@ -61,8 +73,12 @@ jobs:
             baseResourceName=${{ inputs.BASE_RESOURCE_NAME }}
             resourceGroupName=${{ inputs.RESOURCE_GROUP_NAME }}
             location=${{ inputs.LOCATION }}
+            hostname: ${{ inputs.HOST_NAME }}
+            hostRoute: ${{ inputs.HOST_SUB_ROUTE }}
+            language: ${{ inputs.LANGUAGE }}
             foundryUsername=${{ secrets.FOUNDRY_USERNAME }}
             foundryPassword=${{ secrets.FOUNDRY_PASSWORD }}
             foundryAdminKey=${{ secrets.FOUNDRY_ADMIN_KEY }}
+            foundryPreserveConfig: ${{ inputs.CONTAINER_PRESERVE_CONFIG }}
             storageConfiguration=${{ inputs.STORAGE_CONFIGURATION }}
             containerConfiguration=${{ inputs.CONTAINER_CONFIGURATION }}

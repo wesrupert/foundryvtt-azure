@@ -1,10 +1,25 @@
 targetScope = 'subscription'
 
-param location string = 'AustraliaEast'
-param resourceGroupName string
-
 @description('The base name that will prefixed to all Azure resources deployed to ensure they are unique.')
 param baseResourceName string
+
+@description('The resource group that resources will be deployed to')
+param resourceGroupName string
+
+@description('The region that resources will be deployed to')
+param location string = 'AustraliaEast'
+
+@description('The default language for the server')
+param language string = 'en.core'
+
+@description('If provided, serve Foundry content from this domain child route')
+param hostname string = 'https://${webAppName}.azurewebsites.net'
+
+@description('If provided, use in place of the machine's public IP address when generating invites')
+param hostRoute string = ''
+
+@description('If true, preserve the container config across deployments and restarts')
+param preserveConfig boolean = false
 
 @description('Your Foundry VTT username.')
 @secure()
@@ -63,6 +78,10 @@ module containerGroup './modules/containerGroup.bicep' = {
     foundryPassword: foundryPassword
     foundryAdminKey: foundryAdminKey
     containerConfiguration: containerConfiguration
+    language: language
+    hostname: hostname
+    hostRoute: hostRoute
+    preserveConfig: preserveConfig
   }
 }
 
