@@ -36,10 +36,10 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' = {
     largeFileSharesState: storageConfigurationMap[storageConfiguration].largeFileSharesState
   }
 
-  resource symbolicname 'fileServices' = {
+  resource service 'fileServices' = {
     name: 'default'
 
-    resource symbolicname 'shares' = {
+    resource share 'shares' = {
       name: storageShareName
       properties: {
         enabledProtocols: 'SMB'
