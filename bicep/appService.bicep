@@ -75,9 +75,6 @@ module appServicePlan './modules/appServicePlan.bicep' = {
 module webAppFoundryVtt './modules/webAppFoundryVtt.bicep' = {
   name: 'webAppFoundryVtt'
   scope: rg
-  dependsOn: [
-    appServicePlan
-  ]
   params: {
     location: location
     appServicePlanId: appServicePlan.outputs.appServicePlanId
