@@ -32,7 +32,7 @@ on:
         type: string
       CONTAINER_PRESERVE_CONFIG:
         required: false
-        type: boolean
+        type: string
     secrets:
       AZURE_TENANT_ID:
         required: true
