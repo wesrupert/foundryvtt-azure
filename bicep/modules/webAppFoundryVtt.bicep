@@ -5,7 +5,7 @@ param webAppName string
 param language string
 param hostname string
 param hostRoute string
-param preserveConfig boolean
+param preserveConfig string
 
 @secure()
 param foundryUsername string
