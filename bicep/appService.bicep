@@ -13,7 +13,7 @@ param location string = 'AustraliaEast'
 param language string = 'en.core'
 
 @description('If provided, serve Foundry content from this domain child route')
-param hostname string = 'https://${webAppName}.azurewebsites.net'
+param hostname string = 'https://${baseResourceName}.azurewebsites.net'
 
 @description('If provided, use in place of an IP address when generating invites')
 param hostRoute string = ''

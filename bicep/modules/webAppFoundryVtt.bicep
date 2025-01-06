@@ -113,4 +113,4 @@ resource webApp 'Microsoft.Web/sites@2023-12-01' = {
   }
 }
 
-output url string = concat(hostname, hostRoute ? '/' : '', hostRoute)
+output url string = concat(hostname, hostRoute == '' ? '' : '/', hostRoute)
