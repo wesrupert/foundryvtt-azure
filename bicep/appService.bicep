@@ -99,7 +99,7 @@ module webAppFoundryVtt './modules/webAppFoundryVtt.bicep' = {
   name: 'webAppFoundryVtt'
   scope: rg
   params: {
-    version: version,
+    version: version
     location: location
     appServicePlanId: appServicePlan.outputs.appServicePlanId
     storageAccountName: baseResourceName
