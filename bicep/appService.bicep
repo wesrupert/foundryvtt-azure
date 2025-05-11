@@ -7,7 +7,7 @@ param baseResourceName string
 param resourceGroupName string
 
 @description('The version that should be deployed')
-param location string = 'release'
+param version string = 'release'
 
 @description('The region that resources will be deployed to')
 param location string = 'AustraliaEast'
