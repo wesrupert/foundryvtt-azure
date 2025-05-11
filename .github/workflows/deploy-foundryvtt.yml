@@ -17,6 +17,7 @@ jobs:
     if: vars.Type == 'AAS'
     uses: ./.github/workflows/deploy-aas.yml
     with:
+      VERSION: ${{ vars.VERSION }}
       LOCATION: ${{ vars.LOCATION }}
       BASE_RESOURCE_NAME: ${{ vars.BASE_RESOURCE_NAME }}
       RESOURCE_GROUP_NAME: ${{ vars.RESOURCE_GROUP_NAME }}
@@ -39,6 +40,7 @@ jobs:
     if: vars.Type == 'ACI'
     uses: ./.github/workflows/deploy-aci.yml
     with:
+      version: ${{ vars.VERSION }}
       location: ${{ vars.LOCATION }}
       BASE_RESOURCE_NAME: ${{ vars.BASE_RESOURCE_NAME }}
       RESOURCE_GROUP_NAME: ${{ vars.RESOURCE_GROUP_NAME }}

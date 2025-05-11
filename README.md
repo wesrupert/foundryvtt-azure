@@ -31,6 +31,7 @@ It uses the `felddy/foundryvtt:release` container image from Docker Hub. The sou
 The following environment variables should be configured in the repository to define the region to deploy to and the storage and container configuration:
 
 - `TYPE`: Should be set to `ASS` to deploy the Azure App Service for Linux Containers and Azure Files architecture.
+- `VERSION`: The Foundry release to use.
 - `LOCATION`: The Azure region to deploy the resources to. For example, `AustraliaEast`.
 - `BASE_RESOURCE_NAME`: The base name that will prefixed to all Azure resources deployed to ensure they are unique. For example, `myfvtt`.
 - `RESOURCE_GROUP_NAME`: The name of the Azure resource group to create and add the resources to. For example, `myfvtt-rg`.

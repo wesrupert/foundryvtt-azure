@@ -9,6 +9,9 @@ on:
       RESOURCE_GROUP_NAME:
         required: true
         type: string
+      VERSION:
+        required: true
+        type: string
       LOCATION:
         required: true
         type: string
@@ -72,6 +75,7 @@ jobs:
           parameters: >
             baseResourceName=${{ inputs.BASE_RESOURCE_NAME }}
             resourceGroupName=${{ inputs.RESOURCE_GROUP_NAME }}
+            version=${{ inputs.VERSION }}
             location=${{ inputs.LOCATION }}
             hostname=${{ inputs.HOST_NAME }}
             hostRoute=${{ inputs.HOST_SUB_ROUTE }}

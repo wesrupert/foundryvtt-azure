@@ -6,6 +6,9 @@ param baseResourceName string
 @description('The resource group that resources will be deployed to')
 param resourceGroupName string
 
+@description('The version that should be deployed')
+param location string = 'release'
+
 @description('The region that resources will be deployed to')
 param location string = 'AustraliaEast'
 
@@ -96,6 +99,7 @@ module webAppFoundryVtt './modules/webAppFoundryVtt.bicep' = {
   name: 'webAppFoundryVtt'
   scope: rg
   params: {
+    version: version,
     location: location
     appServicePlanId: appServicePlan.outputs.appServicePlanId
     storageAccountName: baseResourceName

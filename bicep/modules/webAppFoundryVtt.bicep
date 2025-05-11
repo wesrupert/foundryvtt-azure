@@ -1,3 +1,4 @@
+param version string
 param location string
 param appServicePlanId string
 param storageAccountName string
@@ -16,7 +17,7 @@ param foundryPassword string
 @secure()
 param foundryAdminKey string
 
-var linuxFxVersion = 'DOCKER|felddy/foundryvtt:release'
+var linuxFxVersion = concat('DOCKER|felddy/foundryvtt:', version)
 
 resource webApp 'Microsoft.Web/sites@2023-12-01' = {
   name: webAppName
